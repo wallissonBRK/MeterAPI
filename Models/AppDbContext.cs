@@ -8,6 +8,10 @@ namespace MeterAPI.Models;
 
 public partial class AppDbContext : DbContext
 {
+    IConfiguration Configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
@@ -175,6 +179,9 @@ public partial class AppDbContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
+    ServerVersion.AutoDetect(Configuration.GetConnectionString("DefaultConnection")));
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
