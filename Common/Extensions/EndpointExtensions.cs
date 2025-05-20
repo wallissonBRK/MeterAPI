@@ -1,5 +1,4 @@
-﻿using MeterAPI.Endpoints.Customer;
-using MeterAPI.Endpoints.Login;
+﻿using MeterAPI.Endpoints.Client;
 
 namespace MeterAPI.Common.Extensions;
 
@@ -17,18 +16,17 @@ public static class EndpointExtensions
         .WithDescription("Este endpoint serve para verificar se a API está funcional. Se a API estiver funcional, retorna 200.")
         .RequireAuthorization();
 
-        endpoints.MapGroup("/v1/costumer")
-            .WithTags("Costumer")
-            .RequireAuthorization()
-            .MapEndpoint<GetCostumerEndpoint>()
-            .MapEndpoint<GetCostumerByCNPJEndpoint>()
-            .MapEndpoint<CreateCostumerEndpoint>()
-            .MapEndpoint<UpdateCostumerEndpoint>()
-            .MapEndpoint<DeleteCostumerEndpoint>();
+        endpoints.MapGroup("/v1/client")
+            .WithTags("Client")
+            //.RequireAuthorization()
+            .MapEndpoint<CreateClientEndpoint>()
+            .MapEndpoint<UpdateClientEndpoint>()
+            .MapEndpoint<DeleteClientEndpoint>()
+            .MapEndpoint<GetClientByDocumentEndpoint>();
 
-        endpoints.MapGroup("/v1/login")
-            .WithTags("Login")
-            .MapEndpoint<ValidateLoginEndpoint>();
+        //endpoints.MapGroup("/v1/login")
+        //    .WithTags("Login")
+        //    .MapEndpoint<ValidateLoginEndpoint>();
     }
 
     private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
