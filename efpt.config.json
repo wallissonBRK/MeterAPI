@@ -29,6 +29,10 @@
       {
          "Name": "meter_event",
          "ObjectType": 0
+      },
+      {
+         "Name": "model",
+         "ObjectType": 0
       }
    ],
    "UiHint": null,

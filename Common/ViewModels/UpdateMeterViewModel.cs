@@ -1,11 +1,10 @@
-﻿using Flunt.Extensions.Br.Validations;
-using Flunt.Notifications;
+﻿using Flunt.Notifications;
 using Flunt.Validations;
 using MeterAPI.Models;
 
 namespace MeterAPI.Common.ViewModels;
 
-public class CreateMeterViewModel : Notifiable<Notification>
+public class UpdateMeterViewModel : Notifiable<Notification>
 {
     public required string SerialNumber { get; set; }
     public required int ClientId { get; set; }
@@ -13,20 +12,19 @@ public class CreateMeterViewModel : Notifiable<Notification>
     public required string InstallationLocal { get; set; }
     public required bool IsActive { get; set; }
 
-    public Meter MapTo()
+    public Meter MapTo(Meter meter)
     {
         Contract<Notification> contract = ValidateCostumerData();
 
         AddNotifications(contract);
 
-        return new Meter
-        {
-            SerialNumber = SerialNumber,
-            ClientId = ClientId,
-            ModelId = ModelId,
-            InstallationLocation = InstallationLocal,
-            IsActive = IsActive
-        };
+        meter.SerialNumber = SerialNumber;
+        meter.ClientId = ClientId;
+        meter.ModelId = ModelId;
+        meter.InstallationLocation = InstallationLocal;
+        meter.IsActive = IsActive;
+
+        return meter;
     }
 
     private Contract<Notification> ValidateCostumerData() =>

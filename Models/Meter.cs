@@ -11,19 +11,19 @@ public partial class Meter
 
     public string SerialNumber { get; set; }
 
-    public string Model { get; set; }
-
-    public string PhaseType { get; set; }
-
     public int ClientId { get; set; }
 
-    public string InstallationLocation { get; set; }
+    public int ModelId { get; set; }
 
     public bool? IsActive { get; set; }
+
+    public string InstallationLocation { get; set; }
 
     public virtual Client Client { get; set; }
 
     public virtual ICollection<DailyReading> DailyReadings { get; set; } = new List<DailyReading>();
 
     public virtual ICollection<MeterEvent> MeterEvents { get; set; } = new List<MeterEvent>();
+
+    public virtual Model Model { get; set; }
 }

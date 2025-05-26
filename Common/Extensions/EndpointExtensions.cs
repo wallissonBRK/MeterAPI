@@ -1,4 +1,5 @@
 ﻿using MeterAPI.Endpoints.Client;
+using MeterAPI.Endpoints.Meter;
 
 namespace MeterAPI.Common.Extensions;
 
@@ -23,6 +24,14 @@ public static class EndpointExtensions
             .MapEndpoint<UpdateClientEndpoint>()
             .MapEndpoint<DeleteClientEndpoint>()
             .MapEndpoint<GetClientByDocumentEndpoint>();
+
+        endpoints.MapGroup("/v1/meter")
+            .WithTags("Meter")
+            //.RequireAuthorization()
+            .MapEndpoint<CreateMeterEndpoint>()
+            .MapEndpoint<UpdateMeterEndpoint>()
+            .MapEndpoint<DeleteMeterEndpoint>()
+            .MapEndpoint<GetMeterBySerialNumberEndpoint>();
 
         //endpoints.MapGroup("/v1/login")
         //    .WithTags("Login")
