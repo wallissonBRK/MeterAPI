@@ -1,9 +1,8 @@
-﻿using Flunt.Extensions.Br.Validations;
-using Flunt.Notifications;
+﻿using Flunt.Notifications;
 using Flunt.Validations;
 using MeterAPI.Models;
 
-namespace MeterAPI.Common.ViewModels;
+namespace MeterAPI.Common.ViewModels.Meter;
 
 public class CreateMeterViewModel : Notifiable<Notification>
 {
@@ -13,13 +12,13 @@ public class CreateMeterViewModel : Notifiable<Notification>
     public required string InstallationLocal { get; set; }
     public required bool IsActive { get; set; }
 
-    public Meter MapTo()
+    public Models.Meter MapTo()
     {
         Contract<Notification> contract = ValidateCostumerData();
 
         AddNotifications(contract);
 
-        return new Meter
+        return new Models.Meter
         {
             SerialNumber = SerialNumber,
             ClientId = ClientId,

@@ -11,7 +11,7 @@ public partial class DailyReading
 
     public int MeterId { get; set; }
 
-    public DateOnly ReadingDate { get; set; }
+    public DateTime ReadingDate { get; set; }
 
     public decimal? ActiveEnergyDirectPeak { get; set; }
 

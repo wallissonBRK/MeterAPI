@@ -1,5 +1,5 @@
 ﻿using MeterAPI.Common;
-using MeterAPI.Common.ViewModels;
+using MeterAPI.Common.ViewModels.Client;
 using MeterAPI.Models;
 using Microsoft.EntityFrameworkCore;
 

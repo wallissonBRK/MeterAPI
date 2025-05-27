@@ -1,5 +1,7 @@
 ﻿using MeterAPI.Endpoints.Client;
+using MeterAPI.Endpoints.DailyReading;
 using MeterAPI.Endpoints.Meter;
+using MeterAPI.Endpoints.MeterEvent;
 
 namespace MeterAPI.Common.Extensions;
 
@@ -32,6 +34,19 @@ public static class EndpointExtensions
             .MapEndpoint<UpdateMeterEndpoint>()
             .MapEndpoint<DeleteMeterEndpoint>()
             .MapEndpoint<GetMeterBySerialNumberEndpoint>();
+
+        endpoints.MapGroup("/v1/daily-reading")
+            .WithTags("DailyReading")
+            //.RequireAuthorization()
+            .MapEndpoint<CreateDailyReadingEndpoint>()
+            .MapEndpoint<GetAllDailyReadingByMeterEndpoint>();
+
+        endpoints.MapGroup("/v1/meter-event")
+            .WithTags("MeterEvent")
+            //.RequireAuthorization()
+            .MapEndpoint<CreateMeterEventEndpoint>()
+            .MapEndpoint<GetAllMeterEventByMeterEndpoint>()
+            .MapEndpoint<GetAllMeterEventByReadingIdEndpoint>();
 
         //endpoints.MapGroup("/v1/login")
         //    .WithTags("Login")

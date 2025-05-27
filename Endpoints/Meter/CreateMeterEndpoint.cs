@@ -1,5 +1,5 @@
 ﻿using MeterAPI.Common;
-using MeterAPI.Common.ViewModels;
+using MeterAPI.Common.ViewModels.Meter;
 using MeterAPI.Models;
 
 namespace MeterAPI.Endpoints.Meter;

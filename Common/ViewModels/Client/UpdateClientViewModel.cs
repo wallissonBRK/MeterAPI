@@ -3,7 +3,7 @@ using Flunt.Notifications;
 using Flunt.Validations;
 using MeterAPI.Models;
 
-namespace MeterAPI.Common.ViewModels;
+namespace MeterAPI.Common.ViewModels.Client;
 
 public class UpdateClientViewModel : Notifiable<Notification>
 {
@@ -14,7 +14,7 @@ public class UpdateClientViewModel : Notifiable<Notification>
     public required string Phone { get; set; }
     public required string Email { get; set; }
 
-    public Client MapTo(Client client)
+    public Models.Client MapTo(Models.Client client)
     {
         Contract<Notification> contract = ValidateCostumerData();
 

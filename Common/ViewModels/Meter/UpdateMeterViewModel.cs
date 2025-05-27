@@ -2,7 +2,7 @@
 using Flunt.Validations;
 using MeterAPI.Models;
 
-namespace MeterAPI.Common.ViewModels;
+namespace MeterAPI.Common.ViewModels.Meter;
 
 public class UpdateMeterViewModel : Notifiable<Notification>
 {
@@ -12,7 +12,7 @@ public class UpdateMeterViewModel : Notifiable<Notification>
     public required string InstallationLocal { get; set; }
     public required bool IsActive { get; set; }
 
-    public Meter MapTo(Meter meter)
+    public Models.Meter MapTo(Models.Meter meter)
     {
         Contract<Notification> contract = ValidateCostumerData();
 
