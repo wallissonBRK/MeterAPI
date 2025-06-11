@@ -8,8 +8,9 @@ namespace MeterAPI.Common.ViewModels.Client;
 public class CreateClientViewModel : Notifiable<Notification>
 {
     public required string Name { get; set; }
+    public required string TypePerson { get; set; }
     public required string Document { get; set; }
-    public required string Adress { get; set; }
+    public required string Address { get; set; }
     public required string Phone { get; set; }
     public required string Email { get; set; }
 
@@ -24,8 +25,9 @@ public class CreateClientViewModel : Notifiable<Notification>
         return new Models.Client
         {
             Name = Name,
+            TypePerson = TypePerson,
             Document = Document,
-            Address = Adress,
+            Address = Address,
             Phone = Phone,
             Email = Email
         };
@@ -33,9 +35,5 @@ public class CreateClientViewModel : Notifiable<Notification>
 
     private Contract<Notification> ValidateCostumerData() =>
             new Contract<Notification>()
-                .Requires()
-                .IsNotNullOrEmpty(Name, "Name", "Nome da empresa é obrigatório.")
-                .IsCpfOrCnpj(Document, "Document", "O numero informado não é um CPF ou CNPJ.")
-                .IsNotNullOrEmpty(Adress, "Adress", "O endereço é obrigatório.")
-                .IsNotNullOrEmpty(Phone, "Phone", "O telefone é obrigatório.");
+                .Requires();
 }

@@ -16,8 +16,8 @@ public static class EndpointExtensions
             .MapGet("/", () => new { message = "OK" })
         .Produces(200)
         .WithSummary("Retorna 200 se a API está funcional.")
-        .WithDescription("Este endpoint serve para verificar se a API está funcional. Se a API estiver funcional, retorna 200.")
-        .RequireAuthorization();
+        .WithDescription("Este endpoint serve para verificar se a API está funcional. Se a API estiver funcional, retorna 200.");
+        //.RequireAuthorization();
 
         endpoints.MapGroup("/v1/client")
             .WithTags("Client")

@@ -9,7 +9,7 @@ public static class AppExtensions
         app.UseCors();
         app.UseSwagger();
         app.UseSwaggerUI();
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseMiddleware<LoggingMiddleware>();
         app.UseAuthentication();
         app.UseAuthorization();
